@@ -39,10 +39,14 @@ fun LoginScreen(navController: NavHostController) {
 
             Button(onClick = {
                 //مقدار دهی واقعی برای ارسال داده
-                navController.navigate(Screen.Home.paramsWithArgs(username,"20")) {
+                navController.navigate(Screen.Home.paramsWithArgs(username, "20")) {
                     popUpTo(Screen.Login.route) {
+                        saveState = true
                         inclusive = true
                     }
+                    launchSingleTop = true
+                    restoreState = true
+
                 }
             }) {
                 Text("ورود به خانه")
